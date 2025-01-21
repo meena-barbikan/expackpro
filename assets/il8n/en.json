@@ -1,0 +1,8 @@
+{
+    "app_bar": {
+        "title": "Counter App"
+    },
+    "button": {
+        "change_language": "Change Language"
+    }
+}

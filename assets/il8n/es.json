@@ -1,0 +1,25 @@
+{
+    "app_bar": {
+        "title": "Aplicación de Contador"
+    },
+    "language": {
+        "selected_message": "Has seleccionado el idioma {{language}}.",
+        "selection": {
+            "title": "Seleccionar Idioma",
+            "message": "Por favor, elija un idioma."
+        },
+        "name": {
+            "en": "Inglés",
+            "es": "Español",
+            "ar": "Árabe",
+            "ru": "Ruso"
+        }
+    },
+    "button": {
+        "change_language": "Cambiar Idioma",
+        "cancel": "Cancelar"
+    },
+    "plural": {
+        "demo": "Tienes {{count}} artículos."
+    }
+}

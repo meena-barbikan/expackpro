@@ -1,0 +1,25 @@
+{
+    "app_bar": {
+        "title": "Counter App"
+    },
+    "language": {
+        "selected_message": "You selected the {{language}} language.",
+        "selection": {
+            "title": "Select Language",
+            "message": "Please choose a language."
+        },
+        "name": {
+            "en": "English",
+            "es": "Spanish",
+            "ar": "Arabic",
+            "ru": "Russian"
+        }
+    },
+    "button": {
+        "change_language": "Change Language",
+        "cancel": "Cancel"
+    },
+    "plural": {
+        "demo": "You have {{count}} items."
+    }
+}
