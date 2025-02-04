@@ -25,6 +25,8 @@ import 'calendar.dart';
 import 'passdata/passdata.dart';
 import 'video_player.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'voicerecord.dart';
 // hive example
 
 // void main() async {
@@ -55,37 +57,37 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //   ));
 // }
 
-// void main() async {
-//   // notification ka off pani vachi iruken... ithu splash screen ka use panurom
-//   // WidgetsFlutterBinding.ensureInitialized();
-//   // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-//   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-//   // await initializeApp();
+void main() async {
+  // notification ka off pani vachi iruken... ithu splash screen ka use panurom
+  // WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // await initializeApp();
 
-// // notification
-//   // await AwesomeNotifications().initialize(null, [
-//   //   NotificationChannel(
-//   //     channelGroupKey: "Basic_channel_group",
-//   //     channelKey: "Basic_channel",
-//   //     channelName: "Basic_Notification",
-//   //     channelDescription: "Test Notification",
-//   //   )
-//   // ], channelGroups: [
-//   //   NotificationChannelGroup(
-//   //     channelGroupKey: "Basic_channel_group",
-//   //     channelGroupName: "Basic Group",
-//   //   )
-//   // ]);
-//   // bool isAllowednotification =
-//   //     await AwesomeNotifications().isNotificationAllowed();
-//   // if (!isAllowednotification) {
-//   //   AwesomeNotifications().requestPermissionToSendNotifications();
-//   // }
+// notification
+  // await AwesomeNotifications().initialize(null, [
+  //   NotificationChannel(
+  //     channelGroupKey: "Basic_channel_group",
+  //     channelKey: "Basic_channel",
+  //     channelName: "Basic_Notification",
+  //     channelDescription: "Test Notification",
+  //   )
+  // ], channelGroups: [
+  //   NotificationChannelGroup(
+  //     channelGroupKey: "Basic_channel_group",
+  //     channelGroupName: "Basic Group",
+  //   )
+  // ]);
+  // bool isAllowednotification =
+  //     await AwesomeNotifications().isNotificationAllowed();
+  // if (!isAllowednotification) {
+  //   AwesomeNotifications().requestPermissionToSendNotifications();
+  // }
 
-//   WidgetsFlutterBinding.ensureInitialized();
-//   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-//   runApp(const MyApp());
-// }
+  WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(const MyApp());
+}
 
 // // Example initialization function
 // Future<void> initializeApp() async {
@@ -149,163 +151,166 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // }
 // other package design
 
-// class MyApp extends StatefulWidget {
-//   const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
-//   @override
-//   State<MyApp> createState() => _MyAppState();
-// }
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
 
-// class _MyAppState extends State<MyApp> {
-//   @override
-//   void initState() {
-//     // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-//     //     overlays: [SystemUiOverlay.bottom]);
-//     super.initState();
-//   }
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+    //     overlays: [SystemUiOverlay.bottom]);
+    super.initState();
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return
-//         //  ChangeNotifierProvider(
-//         //   create: (context) => CounterProvider(),
-//         //   child:
-//         //  GetMaterialApp(
-//         MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Flutter Demo',
-//       // themeMode: ThemeMode.system,
-//       // theme: MyTheme.lightTheme,
-//       // darkTheme: MyTheme.darkTheme,
-//       theme: ThemeData(
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//         useMaterial3: true,
-//       ),
-//       // home: MyHomePage(
-//       //   title: "Image Picker",
-//       // ),
-//       // language
-//       //home: designview(),
-//       // home: MyAppDeisgnview(),
-//       // plan
-//       //  home: ColorSwitcherScreen(),
-//       home: SubscriptionView(),
-//       // home: MemeGenerate(),
-//       //pass data
-//       //home: Passdata(),
-//       // slivers
-//       //  home: SliverappBardesign(),
-//       // custom clippath
-//       //home: homepageclippath(),
-//       //home: CustomeclippathView(),
-//       //home: Simpledesign(),
-//       //  home: HomeScreen(),
-//       //home: Audio(),
-//       // home: Animationview(),
+  @override
+  Widget build(BuildContext context) {
+    return
+        //  ChangeNotifierProvider(
+        //   create: (context) => CounterProvider(),
+        //   child:
+        //  GetMaterialApp(
+        MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      // themeMode: ThemeMode.system,
+      // theme: MyTheme.lightTheme,
+      // darkTheme: MyTheme.darkTheme,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
 
-//       //home: const Authenticationview(),
-//       //home: Connectionview(),
-//       //home: Onboardingview(),
-//       //  home: dashboardview(),
-//       // home: DashboardScreenpicture(),
+      // voice record
+      home: Voicerecord(),
+      // home: MyHomePage(
+      //   title: "Image Picker",
+      // ),
+      // language
+      //home: designview(),
+      // home: MyAppDeisgnview(),
+      // plan
+      //  home: ColorSwitcherScreen(),
+      //  home: SubscriptionView(),
+      // home: MemeGenerate(),
+      //pass data
+      //home: Passdata(),
+      // slivers
+      //  home: SliverappBardesign(),
+      // custom clippath
+      //home: homepageclippath(),
+      //home: CustomeclippathView(),
+      //home: Simpledesign(),
+      //  home: HomeScreen(),
+      //  home: Audio(),
+      // home: Animationview(),
 
-//       // home: const MyHomePage(title: 'Flutter Url Launcher'),
-//       //home: ScrollListanimation(),
-//       //home: animatedview(),
-//       //// home: panitview(),
-//       //home: exampleappbar(),
-//       //home: shimmerloader(),
-//       //home: swiablebuttonview(),
-//       //home: SwiperAnimation(),
-//       //  home: ProviderScreen(),
-//       //  home: CounterPage(),
-//       // Riverpod
-//       //  home: Screendesign(),
-//       // home :CounterPage(),
-//       //home: MyAppView(),
-//       //home: MyAppSizedbox(),
-//       // home: MyAppSizeTransition()
-//       //home: exampleappbar(),
-//       //home: Wrapper(),
-//       //home: MultiColorBarChart(),
-//       //home: Loginpagedesign(),
-//       //home: IndexedStackExample(),
-//       //home: IndexsatckFadeinimage(),
-//       //home: Zoomdrawerview(),
-//       //home: ClipPathExample()
-//       //home: BarChartSample(),
-//       //home: SmsAutoread(),
-//       //home: Designview(),
-//       //home: Curvednavigationbarviewexample(),
-//       //    home: Resigster(),
-//       //home: UserView(),
-//       //  home: UserListView(),
-//       //  home: HomeScreenView(), // image file
-//       //  home: DesignView(),  // design
-//       //home: countpage(),  // design
-//       // home: cookiedeign(), // design
-//       //  home: cokkiedashboarddesign(), // design
-//       // home: Barchat(),
-//       //home: ColumView(),
-//       //home: FlexView(),
-//       //  home: jsonplaceholderexample(), // pagination view page
-//       // home: MyWidget(),
-//       // home: PaginationExample(), // paginationan
-//       //        home: UserListView()
-//       //home: commnetsview(),
-//       //home: MyAppText(),
-//       //home: BottomAppBarExample(),
-//       //home: Bottomappbarview(),
-//       // home: Drawerview(),
-//       //  home: Bottomnavigationview(),
-//       //home: MyAppLandsscape(),
-//       //home: HomePageGridVIEW(),
-//       //  home: MasonryGridViewExample(),
-//       // home: GridExampleHome(),
-//       //home: SingleChildScrollViewExample(),
-//       //home: UserlistPlace(),
-//       //home: AlertboxView(),
-//       // home: orientationbuilderview(),
-//       //  home: SpeedDialmenu(),
-//       //   home: OpenDialog(),
-//       //  ),
-//       //home: Listviewexample(),
-//       // home: GridViewBuilder(),
-//       //  home: Stackexample(),
-//       //home: VideocallScreen());
-//       // home: ConstraniedBoxView(),
-//       //   home: DateTimePickerExample()
-//       //home: Homepage(), // responsive design
+      //home: const Authenticationview(),
+      //home: Connectionview(),
+      //home: Onboardingview(),
+      //  home: dashboardview(),
+      // home: DashboardScreenpicture(),
 
-//       //  home: ecommerceview(),
-//       //  home: ProductDetailsScreen(),
+      // home: const MyHomePage(title: 'Flutter Url Launcher'),
+      //home: ScrollListanimation(),
+      //home: animatedview(),
+      //// home: panitview(),
+      //home: exampleappbar(),
+      //home: shimmerloader(),
+      //home: swiablebuttonview(),
+      //home: SwiperAnimation(),
+      //  home: ProviderScreen(),
+      //  home: CounterPage(),
+      // Riverpod
+      //  home: Screendesign(),
+      // home :CounterPage(),
+      //home: MyAppView(),
+      //home: MyAppSizedbox(),
+      // home: MyAppSizeTransition()
+      //home: exampleappbar(),
+      //home: Wrapper(),
+      //home: MultiColorBarChart(),
+      //home: Loginpagedesign(),
+      //home: IndexedStackExample(),
+      //home: IndexsatckFadeinimage(),
+      //home: Zoomdrawerview(),
+      //home: ClipPathExample()
+      //home: BarChartSample(),
+      //home: SmsAutoread(),
+      //home: Designview(),
+      //home: Curvednavigationbarviewexample(),
+      //    home: Resigster(),
+      //home: UserView(),
+      //  home: UserListView(),
+      //  home: HomeScreenView(), // image file
+      //  home: DesignView(),  // design
+      //home: countpage(),  // design
+      // home: cookiedeign(), // design
+      //  home: cokkiedashboarddesign(), // design
+      // home: Barchat(),
+      //home: ColumView(),
+      //home: FlexView(),
+      //  home: jsonplaceholderexample(), // pagination view page
+      // home: MyWidget(),
+      // home: PaginationExample(), // paginationan
+      //        home: UserListView()
+      //home: commnetsview(),
+      //home: MyAppText(),
+      //home: BottomAppBarExample(),
+      //home: Bottomappbarview(),
+      // home: Drawerview(),
+      //  home: Bottomnavigationview(),
+      //home: MyAppLandsscape(),
+      //home: HomePageGridVIEW(),
+      //  home: MasonryGridViewExample(),
+      // home: GridExampleHome(),
+      //home: SingleChildScrollViewExample(),
+      //home: UserlistPlace(),
+      //home: AlertboxView(),
+      // home: orientationbuilderview(),
+      //  home: SpeedDialmenu(),
+      //   home: OpenDialog(),
+      //  ),
+      //home: Listviewexample(),
+      // home: GridViewBuilder(),
+      //  home: Stackexample(),
+      //home: VideocallScreen());
+      // home: ConstraniedBoxView(),
+      //   home: DateTimePickerExample()
+      //home: Homepage(), // responsive design
 
-//       // Sqlite example
-//       // home: UserListViewSqlite(),
+      //  home: ecommerceview(),
+      //  home: ProductDetailsScreen(),
 
-//       // hive
-//       //home: HiveListView(),
+      // Sqlite example
+      // home: UserListViewSqlite(),
 
-// // color
-//       //home: Colorchange(),
-//       //   home: ImageColorChange(),
-//       // home: ImageDesignPage(),
+      // hive
+      //home: HiveListView(),
 
-//       // change notifier  setstate
-//       // home: MyCounter(),
+// color
+      //home: Colorchange(),
+      //   home: ImageColorChange(),
+      // home: ImageDesignPage(),
 
-//       // custom painter
-//       // home: LargeHalfCirclePage(),
+      // change notifier  setstate
+      // home: MyCounter(),
 
-//       // home: SemiCircleScreen(),
-//       // home: customappview(),
-//       //  home: loginusecustom(),
-//       //home: LoginScreen(),
-//       // animation
-//       //  home: staggeredanimation(),
-//     );
-//   }
-// }
+      // custom painter
+      // home: LargeHalfCirclePage(),
+
+      // home: SemiCircleScreen(),
+      // home: customappview(),
+      //  home: loginusecustom(),
+      //home: LoginScreen(),
+      // animation
+      //  home: staggeredanimation(),
+    );
+  }
+}
 
 // change notifier
 // class MyApp extends StatelessWidget {
@@ -320,40 +325,40 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //     );
 //   }
 // }
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-// flutter localization
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+// // flutter localization
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
 
-class _MyAppState extends State<MyApp> {
-  Locale _locale = Locale("en", ""); // Default locale
+// class _MyAppState extends State<MyApp> {
+//   Locale _locale = Locale("en", ""); // Default locale
 
-  void _changeLanguage(String languageCode) {
-    setState(() {
-      _locale = Locale(languageCode);
-    });
-  }
+//   void _changeLanguage(String languageCode) {
+//     setState(() {
+//       _locale = Locale(languageCode);
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Localizations Sample App',
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: _locale,
-      home: SubscriptionView(
-        changeLanguage: _changeLanguage,
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Localizations Sample App',
+//       localizationsDelegates: AppLocalizations.localizationsDelegates,
+//       supportedLocales: AppLocalizations.supportedLocales,
+//       locale: _locale,
+//       home: SubscriptionView(
+//         changeLanguage: _changeLanguage,
+//       ),
+//     );
+//   }
+// }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
