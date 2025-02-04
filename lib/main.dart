@@ -429,7 +429,7 @@ class _MyHomePageState extends State<MyHomePage> {
   FilePickerResult? result;
   PlatformFile? file;
   File? _image;
-  ImagePicker _imagePicker = ImagePicker();
+  final ImagePicker _imagePicker = ImagePicker();
 
   void pickimageformgallery() async {
     final XFile? pickedFile =
@@ -496,6 +496,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           MaterialPageRoute(
                               builder: (context) => const Barchat()));
                     },
+                    // ignore: deprecated_member_use
                     child: const FaIcon(FontAwesomeIcons.pieChart))),
           ),
         ],
@@ -563,8 +564,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ElevatedButton(
                     onPressed: () async {
-                      final phonenumber = "+916382723030";
-                      final urlphonenumber = "tel:$phonenumber";
+                      const phonenumber = "+916382723030";
+                      const urlphonenumber = "tel:$phonenumber";
                       if (await canLaunchUrl(Uri.parse(urlphonenumber))) {
                         await launchUrl(Uri.parse(urlphonenumber));
                       }
@@ -574,8 +575,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Gap(20),
                 ElevatedButton(
                     onPressed: () async {
-                      final sms = "+916382723030";
-                      final urlsms = "sms:$sms";
+                      const sms = "+916382723030";
+                      const urlsms = "sms:$sms";
                       if (await canLaunchUrl(Uri.parse(urlsms))) {
                         await launchUrl(Uri.parse(urlsms));
                       }
