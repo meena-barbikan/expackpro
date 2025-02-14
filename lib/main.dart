@@ -1,13 +1,16 @@
 import 'dart:io';
 
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:expackpro/audio.dart';
+import 'package:expackpro/imagedownload.dart';
 import 'package:expackpro/mulitplefile.dart';
 import 'package:expackpro/picturenetwork.dart';
 import 'package:expackpro/exflchart.dart';
 import 'package:expackpro/plan.dart';
 import 'package:expackpro/smoothpage_view.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,12 +22,15 @@ import 'package:open_file/open_file.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
+import 'animationview.dart';
+
 import 'memegenerate/memegenerate.dart';
 import 'multilanguage/deign_view.dart';
 import 'calendar.dart';
 import 'passdata/passdata.dart';
+import 'scroll_listanimation.dart';
 import 'video_player.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+// import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'voicerecord.dart';
 // hive example
@@ -57,37 +63,45 @@ import 'voicerecord.dart';
 //   ));
 // }
 
-void main() async {
-  // notification ka off pani vachi iruken... ithu splash screen ka use panurom
-  // WidgetsFlutterBinding.ensureInitialized();
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  // await initializeApp();
-
-// notification
-  // await AwesomeNotifications().initialize(null, [
-  //   NotificationChannel(
-  //     channelGroupKey: "Basic_channel_group",
-  //     channelKey: "Basic_channel",
-  //     channelName: "Basic_Notification",
-  //     channelDescription: "Test Notification",
-  //   )
-  // ], channelGroups: [
-  //   NotificationChannelGroup(
-  //     channelGroupKey: "Basic_channel_group",
-  //     channelGroupName: "Basic Group",
-  //   )
-  // ]);
-  // bool isAllowednotification =
-  //     await AwesomeNotifications().isNotificationAllowed();
-  // if (!isAllowednotification) {
-  //   AwesomeNotifications().requestPermissionToSendNotifications();
-  // }
-
-  WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+// ios style
+void main() {
+  runApp(const CupertinoApp(
+    home:
+        // MyAppios(),
+        MyHomePageview(),
+  ));
 }
+// void main() async {
+//   // notification ka off pani vachi iruken... ithu splash screen ka use panurom
+//   // WidgetsFlutterBinding.ensureInitialized();
+//   // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+//   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+//   // await initializeApp();
+
+// // notification
+//   // await AwesomeNotifications().initialize(null, [
+//   //   NotificationChannel(
+//   //     channelGroupKey: "Basic_channel_group",
+//   //     channelKey: "Basic_channel",
+//   //     channelName: "Basic_Notification",
+//   //     channelDescription: "Test Notification",
+//   //   )
+//   // ], channelGroups: [
+//   //   NotificationChannelGroup(
+//   //     channelGroupKey: "Basic_channel_group",
+//   //     channelGroupName: "Basic Group",
+//   //   )
+//   // ]);
+//   // bool isAllowednotification =
+//   //     await AwesomeNotifications().isNotificationAllowed();
+//   // if (!isAllowednotification) {
+//   //   AwesomeNotifications().requestPermissionToSendNotifications();
+//   // }
+
+//   WidgetsFlutterBinding.ensureInitialized();
+//   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+//   runApp(const MyApp());
+// }
 
 // // Example initialization function
 // Future<void> initializeApp() async {
@@ -149,6 +163,24 @@ void main() async {
 //     );
 //   }
 // }
+
+// imagedownloader
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       home: ImageDownloadview(),
+//     );
+//   }
+// }
 // other package design
 
 class MyApp extends StatefulWidget {
@@ -185,7 +217,7 @@ class _MyAppState extends State<MyApp> {
       ),
 
       // voice record
-      home: Voicerecord(),
+      // home: const Voicerecord(),
       // home: MyHomePage(
       //   title: "Image Picker",
       // ),
@@ -206,8 +238,8 @@ class _MyAppState extends State<MyApp> {
       //home: Simpledesign(),
       //  home: HomeScreen(),
       //  home: Audio(),
-      // home: Animationview(),
-
+      //  home: Animationview(),
+      //   home: Imagedownloadview(),
       //home: const Authenticationview(),
       //home: Connectionview(),
       //home: Onboardingview(),
@@ -215,8 +247,8 @@ class _MyAppState extends State<MyApp> {
       // home: DashboardScreenpicture(),
 
       // home: const MyHomePage(title: 'Flutter Url Launcher'),
-      //home: ScrollListanimation(),
-      //home: animatedview(),
+      //  home: ScrollListanimation(),
+      // home: animatedview(),
       //// home: panitview(),
       //home: exampleappbar(),
       //home: shimmerloader(),
