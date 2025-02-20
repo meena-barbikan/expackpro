@@ -275,27 +275,65 @@ class _SimpledesignState extends State<Simpledesign> {
               const SizedBox(
                 height: 20,
               ),
+              // SizedBox(
+              //   width: 250.0,
+              //   child: DefaultTextStyle(
+              //     style: const TextStyle(
+              //       fontSize: 35,
+              //       color: Colors.white,
+              //       shadows: [
+              //         Shadow(
+              //           blurRadius: 7.0,
+              //           color: Colors.blue,
+              //           offset: Offset(0, 0),
+              //         ),
+              //       ],
+              //     ),
+              //     child: AnimatedTextKit(
+              //       repeatForever: true,
+              //       animatedTexts: [
+              //         FlickerAnimatedText('Flicker Frenzy'),
+              //         FlickerAnimatedText('Night Vibes On'),
+              //         FlickerAnimatedText("C'est La Vie !"),
+              //       ],
+              //       onTap: () {
+              //         print("Tap Event");
+              //       },
+              //     ),
+              //   ),
+              // ),
+              // SizedBox(
+              //   width: 300.0,
+              //   height: 150,
+              //   child: TextLiquidFill(
+              //     text: 'LIQUIDY',
+              //     waveColor: Colors.blueAccent,
+              //     boxBackgroundColor: Colors.redAccent,
+              //     textStyle: const TextStyle(
+              //       fontSize: 80.0,
+              //       fontWeight: FontWeight.bold,
+              //     ),
+              //     boxHeight: 140.0,
+              //   ),
+              // ),
               SizedBox(
                 width: 250.0,
                 child: DefaultTextStyle(
                   style: const TextStyle(
-                    fontSize: 35,
+                    fontSize: 50.0,
+                    fontFamily: 'Canterbury',
                     color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 7.0,
-                        color: Colors.blue,
-                        offset: Offset(0, 0),
-                      ),
-                    ],
                   ),
                   child: AnimatedTextKit(
-                    repeatForever: true,
                     animatedTexts: [
-                      FlickerAnimatedText('Flicker Frenzy'),
-                      FlickerAnimatedText('Night Vibes On'),
-                      FlickerAnimatedText("C'est La Vie !"),
+                      TyperAnimatedText('Think',
+                          speed: const Duration(milliseconds: 100)),
+                      TyperAnimatedText('Build',
+                          speed: const Duration(milliseconds: 100)),
+                      TyperAnimatedText('Ship',
+                          speed: const Duration(milliseconds: 100)),
                     ],
+                    repeatForever: true, // Loop animation
                     onTap: () {
                       print("Tap Event");
                     },
@@ -303,17 +341,24 @@ class _SimpledesignState extends State<Simpledesign> {
                 ),
               ),
               SizedBox(
-                width: 300.0,
-                height: 150,
-                child: TextLiquidFill(
-                  text: 'LIQUIDY',
-                  waveColor: Colors.blueAccent,
-                  boxBackgroundColor: Colors.redAccent,
-                  textStyle: const TextStyle(
-                    fontSize: 80.0,
-                    fontWeight: FontWeight.bold,
+                width: 250.0,
+                child: DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 50.0,
+                    fontFamily: 'Canterbury',
+                    color: Colors.white,
                   ),
-                  boxHeight: 140.0,
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      FadeAnimatedText('Think',
+                          duration: const Duration(seconds: 1)),
+                      FadeAnimatedText('Build',
+                          duration: const Duration(seconds: 1)),
+                      FadeAnimatedText('Ship',
+                          duration: const Duration(seconds: 1)),
+                    ],
+                    repeatForever: true, // Loop animation
+                  ),
                 ),
               ),
             ],

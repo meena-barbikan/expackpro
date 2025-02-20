@@ -16,7 +16,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:open_file/open_file.dart';
 
@@ -24,15 +24,34 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'animationview.dart';
 
+import 'apipage/api_page.dart';
+import 'apiview/resigster.dart';
+import 'apiview/user_view.dart';
+import 'bloc/wrapper.dart';
+import 'conatiner_view.dart';
+import 'counterpage.dart';
+import 'curvednavigationbarview.dart';
+import 'design.dart';
+import 'designview.dart';
+import 'getx/loginpagedesign.dart';
+import 'imagefile.dart';
+import 'indexsatck_fadeinimage.dart';
+import 'loading_view.dart';
 import 'memegenerate/memegenerate.dart';
 import 'multilanguage/deign_view.dart';
 import 'calendar.dart';
+import 'onboardingview.dart';
 import 'passdata/passdata.dart';
+import 'provider_screen.dart';
+import 'riverpod/screendesign.dart';
 import 'scroll_listanimation.dart';
+import 'simpledesign.dart';
 import 'video_player.dart';
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'videocall_screen.dart';
 import 'voicerecord.dart';
+import 'zoomdrawer.dart';
 // hive example
 
 // void main() async {
@@ -63,54 +82,57 @@ import 'voicerecord.dart';
 //   ));
 // }
 
-// ios style
-void main() {
-  runApp(const CupertinoApp(
-    home:
-        // MyAppios(),
-        MyHomePageview(),
-  ));
+// // ios style
+// void main() {
+//   runApp(const CupertinoApp(
+//     home:
+//         // MyAppios(),
+
+//         // image download IN GALLERY
+//         galleryimagedownload(),
+//   ));
+// }
+
+void main() async {
+  // notification ka off pani vachi iruken... ithu splash screen ka use panurom
+  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await initializeApp();
+
+// notification
+  // await AwesomeNotifications().initialize(null, [
+  //   NotificationChannel(
+  //     channelGroupKey: "Basic_channel_group",
+  //     channelKey: "Basic_channel",
+  //     channelName: "Basic_Notification",
+  //     channelDescription: "Test Notification",
+  //   )
+  // ], channelGroups: [
+  //   NotificationChannelGroup(
+  //     channelGroupKey: "Basic_channel_group",
+  //     channelGroupName: "Basic Group",
+  //   )
+  // ]);
+  // bool isAllowednotification =
+  //     await AwesomeNotifications().isNotificationAllowed();
+  // if (!isAllowednotification) {
+  //   AwesomeNotifications().requestPermissionToSendNotifications();
+  // }
+
+  WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(const MyApp());
 }
-// void main() async {
-//   // notification ka off pani vachi iruken... ithu splash screen ka use panurom
-//   // WidgetsFlutterBinding.ensureInitialized();
-//   // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-//   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-//   // await initializeApp();
 
-// // notification
-//   // await AwesomeNotifications().initialize(null, [
-//   //   NotificationChannel(
-//   //     channelGroupKey: "Basic_channel_group",
-//   //     channelKey: "Basic_channel",
-//   //     channelName: "Basic_Notification",
-//   //     channelDescription: "Test Notification",
-//   //   )
-//   // ], channelGroups: [
-//   //   NotificationChannelGroup(
-//   //     channelGroupKey: "Basic_channel_group",
-//   //     channelGroupName: "Basic Group",
-//   //   )
-//   // ]);
-//   // bool isAllowednotification =
-//   //     await AwesomeNotifications().isNotificationAllowed();
-//   // if (!isAllowednotification) {
-//   //   AwesomeNotifications().requestPermissionToSendNotifications();
-//   // }
+// Example initialization function
+Future<void> initializeApp() async {
+  // Simulate some initialization tasks
+  await Future.delayed(const Duration(seconds: 3));
 
-//   WidgetsFlutterBinding.ensureInitialized();
-//   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-//   runApp(const MyApp());
-// }
-
-// // Example initialization function
-// Future<void> initializeApp() async {
-//   // Simulate some initialization tasks
-//   await Future.delayed(const Duration(seconds: 3));
-
-//   // After initialization, remove the splash screen
-//   FlutterNativeSplash.remove();
-// }
+  // After initialization, remove the splash screen
+  FlutterNativeSplash.remove();
+}
 
 // class MyApp extends StatefulWidget {
 //   const MyApp({super.key});
@@ -216,6 +238,11 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
 
+      //home: Design(),
+      // home: HomeScreenView(),
+      //  home: PaginationExample(),
+      //  home: animatedview(),
+      // home: Simpledesign(),
       // voice record
       // home: const Voicerecord(),
       // home: MyHomePage(
@@ -223,10 +250,10 @@ class _MyAppState extends State<MyApp> {
       // ),
       // language
       //home: designview(),
-      // home: MyAppDeisgnview(),
+      //home: MyAppDeisgnview(),
       // plan
       //  home: ColorSwitcherScreen(),
-      //  home: SubscriptionView(),
+      //home: SubscriptionView(),
       // home: MemeGenerate(),
       //pass data
       //home: Passdata(),
@@ -236,32 +263,39 @@ class _MyAppState extends State<MyApp> {
       //home: homepageclippath(),
       //home: CustomeclippathView(),
       //home: Simpledesign(),
-      //  home: HomeScreen(),
-      //  home: Audio(),
-      //  home: Animationview(),
+      //  home: HomeScreen(),\
+
+      //download picture audio file
+      //home: Audio(),
+
+      // api page
+      home: ApiPage(),
+
+      //home: Animationview(),
       //   home: Imagedownloadview(),
       //home: const Authenticationview(),
       //home: Connectionview(),
       //home: Onboardingview(),
-      //  home: dashboardview(),
-      // home: DashboardScreenpicture(),
+      //home: dashboardview(),
+      //home: DashboardScreenpicture(),
 
-      // home: const MyHomePage(title: 'Flutter Url Launcher'),
-      //  home: ScrollListanimation(),
-      // home: animatedview(),
+      //home: const MyHomePage(title: 'Flutter Url Launcher'),
+      // home: ScrollListanimation(),
+      //home: animatedview(),
       //// home: panitview(),
       //home: exampleappbar(),
       //home: shimmerloader(),
       //home: swiablebuttonview(),
+      //  swiper animation
       //home: SwiperAnimation(),
-      //  home: ProviderScreen(),
-      //  home: CounterPage(),
+      //home: ProviderScreen(),
+      //home: CounterPage(),
       // Riverpod
-      //  home: Screendesign(),
+      //home: Screendesign(),
       // home :CounterPage(),
       //home: MyAppView(),
       //home: MyAppSizedbox(),
-      // home: MyAppSizeTransition()
+      //      home: MyAppSizeTransition()
       //home: exampleappbar(),
       //home: Wrapper(),
       //home: MultiColorBarChart(),
@@ -272,10 +306,13 @@ class _MyAppState extends State<MyApp> {
       //home: ClipPathExample()
       //home: BarChartSample(),
       //home: SmsAutoread(),
+
+      // selectable text
       //home: Designview(),
+
       //home: Curvednavigationbarviewexample(),
-      //    home: Resigster(),
-      //home: UserView(),
+      //home: Resigster(),
+      //  home: UserView(),
       //  home: UserListView(),
       //  home: HomeScreenView(), // image file
       //  home: DesignView(),  // design
@@ -290,15 +327,17 @@ class _MyAppState extends State<MyApp> {
       // home: PaginationExample(), // paginationan
       //        home: UserListView()
       //home: commnetsview(),
-      //home: MyAppText(),
+      ////  home: MyAppText(),
       //home: BottomAppBarExample(),
       //home: Bottomappbarview(),
       // home: Drawerview(),
       //  home: Bottomnavigationview(),
       //home: MyAppLandsscape(),
       //home: HomePageGridVIEW(),
-      //  home: MasonryGridViewExample(),
-      // home: GridExampleHome(),
+      // phone odahh dashbaorad design
+      //   home: MasonryGridViewExample(),
+
+      //home: GridExampleHome(),
       //home: SingleChildScrollViewExample(),
       //home: UserlistPlace(),
       //home: AlertboxView(),
@@ -314,8 +353,10 @@ class _MyAppState extends State<MyApp> {
       //   home: DateTimePickerExample()
       //home: Homepage(), // responsive design
 
-      //  home: ecommerceview(),
-      //  home: ProductDetailsScreen(),
+      //home: ecommerceview(),
+
+      // product image....select pana pana change agum ..image
+      // home: ProductDetailsScreen(),
 
       // Sqlite example
       // home: UserListViewSqlite(),
@@ -339,7 +380,7 @@ class _MyAppState extends State<MyApp> {
       //  home: loginusecustom(),
       //home: LoginScreen(),
       // animation
-      //  home: staggeredanimation(),
+      // home: staggeredanimation(),
     );
   }
 }
@@ -844,3 +885,17 @@ class _MyHomePageState extends State<MyHomePage> {
 //         home: BarChartSample());
 //   }
 // }
+
+class galleryimagedownload extends StatefulWidget {
+  const galleryimagedownload({super.key});
+
+  @override
+  State<galleryimagedownload> createState() => _galleryimagedownloadState();
+}
+
+class _galleryimagedownloadState extends State<galleryimagedownload> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
+  }
+}
