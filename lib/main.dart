@@ -12,19 +12,23 @@ import 'package:expackpro/smoothpage_view.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:open_file/open_file.dart';
+import 'package:provider/provider.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
 import 'animationview.dart';
 
 import 'apipage/api_page.dart';
+import 'apipage/getx_counterapp.dart';
 import 'apiview/resigster.dart';
 import 'apiview/user_view.dart';
 import 'bloc/wrapper.dart';
@@ -122,7 +126,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 // Example initialization function
@@ -203,6 +207,83 @@ Future<void> initializeApp() async {
 //     );
 //   }
 // }
+
+// Getx
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const GetMaterialApp(
+//       home: GetxCounterapp(),
+//     );
+//   }
+// }
+
+// lazy loading
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       //home: LazyLoadingview(),
+//       //  home: validationformview(),
+//       // home: ImageFileView(),
+//       home: Bottomnavigationview(),
+//     );
+//   }
+// }
+//provider   extends changenotifier
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAPPState();
+// }
+
+// class _MyAPPState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ChangeNotifierProvider(
+//       create: (context) => CounterProvider(),
+//       child: const MaterialApp(
+//         home: providercounterapp(),
+//       ),
+//     );
+//   }
+// }
+
+// Bloc  extends cubit
+// class MyApp extends StatefulWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       create: (BuildContext context) => CounterBloc(),
+//       child: const MaterialApp(
+//         home: BlocCounterapp(),
+//       ),
+//     );
+//   }
+// }
 // other package design
 
 class MyApp extends StatefulWidget {
@@ -269,14 +350,15 @@ class _MyAppState extends State<MyApp> {
       //home: Audio(),
 
       // api page
-      home: ApiPage(),
+      //  home: ApiPage(),
+      //   home: GetxCounterapp(),
 
       //home: Animationview(),
       //   home: Imagedownloadview(),
       //home: const Authenticationview(),
       //home: Connectionview(),
       //home: Onboardingview(),
-      //home: dashboardview(),
+      //  home: dashboardview(),
       //home: DashboardScreenpicture(),
 
       //home: const MyHomePage(title: 'Flutter Url Launcher'),
@@ -335,7 +417,7 @@ class _MyAppState extends State<MyApp> {
       //home: MyAppLandsscape(),
       //home: HomePageGridVIEW(),
       // phone odahh dashbaorad design
-      //   home: MasonryGridViewExample(),
+      home: MasonryGridViewExample(),
 
       //home: GridExampleHome(),
       //home: SingleChildScrollViewExample(),
