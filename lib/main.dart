@@ -28,6 +28,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'animationview.dart';
 
 import 'apipage/api_page.dart';
+import 'apipage/clippath.dart';
 import 'apipage/getx_counterapp.dart';
 import 'apiview/resigster.dart';
 import 'apiview/user_view.dart';
@@ -417,8 +418,8 @@ class _MyAppState extends State<MyApp> {
       //home: MyAppLandsscape(),
       //home: HomePageGridVIEW(),
       // phone odahh dashbaorad design
-      home: MasonryGridViewExample(),
-
+      //  home: MasonryGridViewExample(),
+      home: const ClippathView(),
       //home: GridExampleHome(),
       //home: SingleChildScrollViewExample(),
       //home: UserlistPlace(),
